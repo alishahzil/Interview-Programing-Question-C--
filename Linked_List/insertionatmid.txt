@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+class node{
+  public:
+   int data;
+   node* next;
+   node(int val){
+     data = val;
+     next = NULL;
+  }
+};
+void insertion(node* &head,int val){
+  node* n = new node(val);
+  if(head == NULL){
+    head = n;
+    return;
+  }
+  node * temp = head;
+  
+  while(temp->next !=NULL){
+    temp = temp->next;
+  }
+  temp->next =  n;
+  return;
+};
+
+void display(node * &head){
+  if(head == NULL){
+    cout<<"linked list is not created yet"<<endl;
+    return;
+  }
+  
+  node * temp = head;
+  
+  while(temp->next !=NULL){
+    cout<<temp->data<<"-->";
+    temp = temp->next;
+  }
+  cout<<temp->data<<endl;
+  return;
+};
+
+void insertintomid(node* &head,int val){
+  if(head == NULL){
+    cout<<"Your linked list is not created yet";
+    return;
+  }
+  node * temp = head;
+  while(temp->data != val-1 && temp->next !=NULL){
+    temp = temp->next;
+  }
+  node * n = new node(val);
+  n->next = temp->next->next;
+  temp->next = n;
+  return;
+}
+
+
+int main() 
+{
+  node * head = NULL;
+  insertion(head,23);
+  insertion(head,24);
+  insertion(head,26);
+  insertion(head,27);
+  display(head);
+  insertintomid(head,25);
+  display(head);
+  
+  return 0;
+}

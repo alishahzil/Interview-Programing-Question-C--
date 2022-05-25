@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+//Sequential search
+
+int main() 
+{
+    int arr[] = {1,50,32,4,5,7,23,89,67,34};
+    int a =34;
+    int size = sizeof(arr)/sizeof(arr[0]);
+    for(int i = 0; i<size; i++){
+      if(a == arr[i]){
+       cout<<"element found"<<endl; 
+      }
+    }
+    return 0;
+}

@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+//selection sort
+
+int main() 
+{
+    int arr [] = {2,7,4,1,5,3};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    
+    for(int i = 0; i <= size-2;i++){
+      int min = i;
+      for(int j=i+1; j <= size-1; j++){
+        if(arr[j] < arr[min]){
+          min = j;
+        }
+      }
+      int temp = arr[i];
+      arr[i] = arr[min];
+      arr[min] = temp;
+    }
+    
+    for (int i =0 ; i < size;i++){
+      cout<<arr[i];
+      cout<<',';
+    }
+    cout<<endl;
+    
+    return 0;
+}
